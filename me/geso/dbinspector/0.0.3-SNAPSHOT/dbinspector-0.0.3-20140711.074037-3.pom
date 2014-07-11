@@ -1,0 +1,222 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>me.geso</groupId>
+	<artifactId>dbinspector</artifactId>
+	<version>0.0.3-SNAPSHOT</version>
+	<name>dbinspector</name>
+	<description>dbinspector</description>
+	<url>https://github.com/tokuhirom/dbinspector.java/</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<github.global.server>github</github.global.server>
+	</properties>
+
+  <scm>
+    <url>https://github.com/tokuhirom/dbinspector.java</url>
+    <connection>scm:git:git://github.com/tokuhirom/dbinspector.java.git</connection>
+    <developerConnection>scm:git:git://github.com/tokuhirom/dbinspector.java.git</developerConnection>
+  </scm>
+
+  <developers>
+    <developer>
+      <id>tokuhirom</id>
+      <name>Tokuhiro Matsuno</name>
+      <email>tokuhirom@gmail.com</email>
+      <url>http://geso.me/</url>
+      <roles>
+        <role>lead</role>
+        <role>architect</role>
+        <role>developer</role>
+      </roles>
+      <timezone>-9</timezone>
+    </developer>
+  </developers>
+
+	<licenses>
+		<license>
+			<name>MIT License</name>
+			<url>http://www.opensource.org/licenses/mit-license.php</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.4.179</version>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+
+
+  <distributionManagement>
+    <repository>
+      <id>internal.repo</id>
+      <name>Temporary Staging Repository</name>
+      <url>file://${project.build.directory}/mvn-repo</url>
+    </repository>
+  </distributionManagement>
+
+	<build>
+		<plugins>
+      <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>2.8.1</version>
+          <configuration>
+                <altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-repo</altDeploymentRepository>
+          </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-gpg-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>sign-artifacts</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>sign</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+			<plugin>
+				<groupId>com.github.github</groupId>
+				<artifactId>site-maven-plugin</artifactId>
+				<version>0.7</version>
+				<configuration>
+					<message>Building site for ${project.version}</message>
+					<server>github</server>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>site</goal>
+						</goals>
+						<phase>site</phase>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.0</version>
+				<configuration>
+					<reportPlugins>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-project-info-reports-plugin</artifactId>
+							<version>2.2</version>
+							<configuration>
+								<dependencyDetailsEnabled>true</dependencyDetailsEnabled>
+								<dependencyLocationsEnabled>true</dependencyLocationsEnabled>
+							</configuration>
+						</plugin>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-javadoc-plugin</artifactId>
+							<version>2.7</version>
+						</plugin>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-surefire-report-plugin</artifactId>
+							<version>2.6</version>
+						</plugin>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-checkstyle-plugin</artifactId>
+							<version>2.6</version>
+						</plugin>
+					</reportPlugins>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+							<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+    <plugin>
+            <groupId>com.github.github</groupId>
+            <artifactId>site-maven-plugin</artifactId>
+            <version>0.9</version>
+            <configuration>
+                  <!-- git commit message -->
+                  <message>Maven artifacts for ${project.version}</message>
+                  <!-- disable webpage processing -->
+                  <noJekyll>true</noJekyll>
+                  <!-- matches distribution management repository url above -->
+                  <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory>
+                  <!-- remote branch name -->
+                  <branch>refs/heads/mvn-repo</branch>
+                  <!-- If you remove this then the old artifact will be removed and new 
+                  one will replace. But with the merge tag you can just release by changing 
+                                                    the version -->
+                  <merge>true</merge>
+                  <includes>
+                    <include>**/*</include>
+                    </includes>
+                    <!-- github repo name -->
+                    <repositoryName>dbinspector.java</repositoryName>
+                    <!-- github username -->
+                    <repositoryOwner>tokuhirom</repositoryOwner>
+              </configuration>
+              <executions>
+                  <execution>
+                        <goals>
+                            <goal>site</goal>
+                        </goals>
+                        <phase>deploy</phase>
+                  </execution>
+              </executions>
+    </plugin>
+		</plugins>
+	</build>
+</project>
