@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.sql.DatabaseMetaData;
 
 public class Column {
+
 	private final String name;
 	private final String typeName;
 	private final int size;
@@ -14,7 +15,7 @@ public class Column {
 	private final int dataType;
 	private final boolean isAutoIncrement;
 
-	/**
+	/*
 	 * <OL>
 	 * <LI><B>TABLE_CAT</B> String {@code =>} table catalog (may be
 	 * <code>null</code>)

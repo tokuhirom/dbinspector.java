@@ -21,7 +21,7 @@ public class Table {
 	private final String type;
 	private final String schema;
 	private final String catalog;
-	private List<Column> columns;
+	private final List<Column> columns;
 	private final List<ImportedKey> importedKeys;
 	private final List<ExportedKey> exportedKeys;
 

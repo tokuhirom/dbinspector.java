@@ -9,9 +9,9 @@ import java.util.List;
 import java.util.Optional;
 
 public class Inspector {
-	private Connection connection;
-	private String catalog;
-	private String schemaPattern;
+	private final Connection connection;
+	private final String catalog;
+	private final String schemaPattern;
 
 	public Inspector(Connection connection) {
 		this.connection = connection;

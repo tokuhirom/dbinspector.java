@@ -19,7 +19,7 @@ public class ExportedKey {
 	private final String primaryKeyName;
 	private final short deferrability;
 
-    /**
+    /*
      * Retrieves a description of the foreign key columns that reference the
      * given table's primary key columns (the foreign keys exported by a
      * table).  They are ordered by FKTABLE_CAT, FKTABLE_SCHEM,
@@ -80,20 +80,6 @@ public class ExportedKey {
      *      </UL>
      *  </OL>
      *
-     * @param catalog a catalog name; must match the catalog name as it
-     *        is stored in this database; "" retrieves those without a catalog;
-     *        <code>null</code> means that the catalog name should not be used to narrow
-     *        the search
-     * @param schema a schema name; must match the schema name
-     *        as it is stored in the database; "" retrieves those without a schema;
-     *        <code>null</code> means that the schema name should not be used to narrow
-     *        the search
-     * @param table a table name; must match the table name as it is stored
-     *        in this database
-     * @return a <code>ResultSet</code> object in which each row is a
-     *         foreign key column description
-     * @exception SQLException if a database access error occurs
-     * @see #getImportedKeys
      */
 	public ExportedKey(Table table, ResultSet stmt) throws SQLException {
 		this.primaryKeyCatalog = stmt.getString("PKTABLE_CAT");
