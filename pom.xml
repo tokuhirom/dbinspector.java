@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>me.geso</groupId>
 	<artifactId>dbinspector</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>0.0.2</version>
 	<name>dbinspector</name>
 	<description>dbinspector</description>
 	<url>https://github.com/tokuhirom/dbinspector.java/</url>
@@ -59,6 +59,22 @@
 		</dependency>
 
 	</dependencies>
+
+
+  <distributionManagement>
+    <repository>
+      <id>sonatype-nexus-staging</id>
+      <name>Nexus Release Repository</name>
+      <uniqueVersion>false</uniqueVersion>
+      <url>http://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+    <snapshotRepository>
+      <id>me.geso</id>
+      <name>geso.me Repository</name>
+      <uniqueVersion>false</uniqueVersion>
+      <url>file:${user.home}/maven2/</url>
+    </snapshotRepository>
+  </distributionManagement>
 
 	<build>
 		<plugins>
