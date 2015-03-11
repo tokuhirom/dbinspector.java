@@ -3,9 +3,11 @@ package me.geso.dbinspector;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 @ToString
+@EqualsAndHashCode
 public class ExportedKey {
 	private final String primaryKeyCatalog;
 	private final String primaryKeySchema;

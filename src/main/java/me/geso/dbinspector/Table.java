@@ -7,9 +7,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 @ToString
+@EqualsAndHashCode
 public class Table {
 
 	private final Connection connection;
