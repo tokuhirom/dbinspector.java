@@ -1,6 +1,9 @@
 dbinspector.java
 ================
 
+[![Build Status](https://travis-ci.org/tokuhirom/dbinspector.java.svg?branch=master)](https://travis-ci.org/tokuhirom/dbinspector.java)
+[![javadoc.io](https://javadocio-badges.herokuapp.com/net.moznion/mysql-diff/badge.svg)](https://javadocio-badges.herokuapp.com/me.geso.dbinspector/dbinspector)
+
 dbinspector.java is a tiny OO wrapper for JDBC's schema introspection API.
 
 		Inspector inspector = new Inspector(conn);
