@@ -18,7 +18,8 @@
 	<scm>
 		<url>https://github.com/tokuhirom/dbinspector.java</url>
 		<connection>scm:git:git://github.com/tokuhirom/dbinspector.java.git</connection>
-		<developerConnection>scm:git:git://github.com/tokuhirom/dbinspector.java.git</developerConnection>
+		<developerConnection>scm:git:git@github.com:tokuhirom/dbinspector.java.git</developerConnection>
+		<tag>HEAD</tag>
 	</scm>
 
 	<distributionManagement>
