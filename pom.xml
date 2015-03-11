@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>me.geso.dbinspector</groupId>
 	<artifactId>dbinspector</artifactId>
-	<version>0.1.0</version>
+	<version>0.1.1-SNAPSHOT</version>
 	<name>dbinspector</name>
 	<description>dbinspector</description>
 	<url>https://github.com/tokuhirom/dbinspector.java/</url>
@@ -18,7 +18,7 @@
 		<url>https://github.com/tokuhirom/dbinspector.java</url>
 		<connection>scm:git:git://github.com/tokuhirom/dbinspector.java.git</connection>
 		<developerConnection>scm:git:git@github.com:tokuhirom/dbinspector.java.git</developerConnection>
-		<tag>dbinspector-0.1.0</tag>
+		<tag>HEAD</tag>
 	</scm>
 
 	<distributionManagement>
