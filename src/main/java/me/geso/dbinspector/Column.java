@@ -16,6 +16,7 @@ public class Column {
 	private final boolean nullable;
 	private final int dataType;
 	private final boolean isAutoIncrement;
+	private final Table table;
 
 	/*
 	 * <OL>
@@ -85,7 +86,8 @@ public class Column {
 	 * </UL>
 	 * </OL>
 	 */
-	public Column(ResultSet stmt) throws SQLException {
+	public Column(Table table, ResultSet stmt) throws SQLException {
+		this.table = table;
 		this.name = stmt.getString("COLUMN_NAME");
 		this.typeName = stmt.getString("TYPE_NAME");
 		this.size = stmt.getInt("COLUMN_SIZE");

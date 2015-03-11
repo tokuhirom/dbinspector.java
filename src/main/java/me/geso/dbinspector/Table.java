@@ -96,7 +96,7 @@ public class Table {
 			"%");
 
 		while (stmt.next()) {
-			columns.add(new Column(stmt));
+			columns.add(new Column(this, stmt));
 		}
 		return columns;
 	}
