@@ -1,6 +1,6 @@
 language: java
 jdk:
-  - oracledk8
+  - oraclejdk8
 before_install:
   - mysql -e "create database IF NOT EXISTS test;" -uroot
 install: mvn install -DskipTests=true -Dgpg.skip=true
