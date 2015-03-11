@@ -3,6 +3,9 @@ package me.geso.dbinspector;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import lombok.ToString;
+
+@ToString
 public class ExportedKey {
 	private final String primaryKeyCatalog;
 	private final String primaryKeySchema;
