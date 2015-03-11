@@ -1,6 +1,6 @@
 package me.geso.dbinspector;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.sql.SQLException;
 

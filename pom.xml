@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>me.geso</groupId>
@@ -14,26 +15,26 @@
 		<github.global.server>github</github.global.server>
 	</properties>
 
-  <scm>
-    <url>https://github.com/tokuhirom/dbinspector.java</url>
-    <connection>scm:git:git://github.com/tokuhirom/dbinspector.java.git</connection>
-    <developerConnection>scm:git:git://github.com/tokuhirom/dbinspector.java.git</developerConnection>
-  </scm>
+	<scm>
+		<url>https://github.com/tokuhirom/dbinspector.java</url>
+		<connection>scm:git:git://github.com/tokuhirom/dbinspector.java.git</connection>
+		<developerConnection>scm:git:git://github.com/tokuhirom/dbinspector.java.git</developerConnection>
+	</scm>
 
-  <developers>
-    <developer>
-      <id>tokuhirom</id>
-      <name>Tokuhiro Matsuno</name>
-      <email>tokuhirom@gmail.com</email>
-      <url>http://geso.me/</url>
-      <roles>
-        <role>lead</role>
-        <role>architect</role>
-        <role>developer</role>
-      </roles>
-      <timezone>-9</timezone>
-    </developer>
-  </developers>
+	<developers>
+		<developer>
+			<id>tokuhirom</id>
+			<name>Tokuhiro Matsuno</name>
+			<email>tokuhirom@gmail.com</email>
+			<url>http://geso.me/</url>
+			<roles>
+				<role>lead</role>
+				<role>architect</role>
+				<role>developer</role>
+			</roles>
+			<timezone>-9</timezone>
+		</developer>
+	</developers>
 
 	<licenses>
 		<license>
@@ -56,20 +57,19 @@
 			<version>1.4.179</version>
 			<scope>test</scope>
 		</dependency>
-
 	</dependencies>
 
 
-  <distributionManagement>
-      <repository>
-          <id>repo</id>
-          <url>https://github.com/tokuhirom/maven/raw/master/releases</url>
-      </repository>
-      <snapshotRepository>
-          <id>snapshot-repo</id>
-          <url>https://github.com/tokuhirom/maven/raw/master/snapshots</url>
-      </snapshotRepository>
-  </distributionManagement>
+	<distributionManagement>
+		<repository>
+			<id>repo</id>
+			<url>https://github.com/tokuhirom/maven/raw/master/releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshot-repo</id>
+			<url>https://github.com/tokuhirom/maven/raw/master/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
 
 	<build>
 		<plugins>
@@ -81,11 +81,11 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-javadoc-plugin</artifactId>
-        <version>2.9.1</version>
-      </plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.9.1</version>
+			</plugin>
 		</plugins>
 	</build>
 </project>

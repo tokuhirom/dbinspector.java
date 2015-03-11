@@ -1,9 +1,8 @@
 package me.geso.dbinspector;
 
+import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import java.sql.DatabaseMetaData;
 
 public class Column {
 

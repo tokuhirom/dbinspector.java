@@ -34,7 +34,7 @@ public class Inspector {
 		String[] types = new String[1];
 		types[0] = "TABLE";
 		ResultSet stmt = metaData.getTables(catalog, schemaPattern,
-				tablePattern, types);
+			tablePattern, types);
 		List<Table> result = new ArrayList<>();
 		while (stmt.next()) {
 			result.add(new Table(connection, catalog, schemaPattern, stmt));

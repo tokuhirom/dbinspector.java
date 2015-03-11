@@ -12,7 +12,7 @@ public class Table {
 	@Override
 	public String toString() {
 		return "Table [connection=" + connection + ", name=" + name
-				+ ", typeName=" + getTypeName() + ", type=" + getType() + "]";
+			+ ", typeName=" + getTypeName() + ", type=" + getType() + "]";
 	}
 
 	private final Connection connection;
@@ -97,7 +97,7 @@ public class Table {
 	private List<Column> buildColumns() throws SQLException {
 		List<Column> columns = new ArrayList<>();
 		ResultSet stmt = connection.getMetaData().getColumns(catalog, schema, name,
-				"%");
+			"%");
 
 		while (stmt.next()) {
 			columns.add(new Column(stmt));
@@ -114,7 +114,7 @@ public class Table {
 	}
 
 	public Column getColumn(String columnName) {
-		for (Column column: this.columns) {
+		for (Column column : this.columns) {
 			if (column.getName().equals(columnName)) {
 				return column;
 			}

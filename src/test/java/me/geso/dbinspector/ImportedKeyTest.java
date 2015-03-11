@@ -1,6 +1,6 @@
 package me.geso.dbinspector;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -20,7 +20,7 @@ public class ImportedKeyTest extends TestBase {
 		assertEquals(key.getForeignKeyColumn(), "repository_id");
 		assertEquals(key.getForeignKeyName(), "CONSTRAINT_AD");
 		assertEquals(key.getForeignKeySchema(), "PUBLIC");
-		assertEquals(key.getForeignKeyTable() , "branch");
+		assertEquals(key.getForeignKeyTable(), "branch");
 		assertEquals(key.getKeySequence(), 1);
 		assertEquals(key.getPrimaryKeyCatalog(), "test");
 		assertEquals(key.getPrimaryKeyColumn(), "id");
