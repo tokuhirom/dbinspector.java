@@ -1,6 +1,7 @@
 package me.geso.dbinspector;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.sql.SQLException;
 import java.util.Optional;
@@ -14,11 +15,13 @@ public class ColumnTest extends TestBase {
 		Optional<Table> table = inspector.getTable("job");
 		assertTrue(table.isPresent());
 		Column column = table.get().getColumn("id");
-		assertEquals(column.getDataType(), java.sql.Types.INTEGER);
-		assertEquals(column.getName(), "id");
-		assertEquals(column.getOrdinalPosition(), 1);
-		assertEquals(column.getSize(), 10);
-		assertEquals(column.getTypeName(), "INTEGER");
+		assertEquals(java.sql.Types.INTEGER, column.getDataType());
+		assertEquals("id", column.getName());
+		assertEquals(1, column.getOrdinalPosition());
+		assertEquals(10, column.getSize());
+		assertEquals("INTEGER", column.getTypeName());
+		assertEquals(false, column.isNullable());
+		assertEquals(false, column.isAutoIncrement());
 	}
 
 }

@@ -1,11 +1,14 @@
 package me.geso.dbinspector;
 
+import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import java.sql.DatabaseMetaData;
+import lombok.ToString;
 
+@ToString
 public class Column {
+
 	private final String name;
 	private final String typeName;
 	private final int size;
@@ -14,7 +17,7 @@ public class Column {
 	private final int dataType;
 	private final boolean isAutoIncrement;
 
-	/**
+	/*
 	 * <OL>
 	 * <LI><B>TABLE_CAT</B> String {@code =>} table catalog (may be
 	 * <code>null</code>)

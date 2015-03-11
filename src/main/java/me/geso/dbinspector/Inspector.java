@@ -8,15 +8,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import lombok.ToString;
+
+@ToString
 public class Inspector {
-	private Connection connection;
-	private String catalog;
-	private String schemaPattern;
+	private final Connection connection;
+	private final String catalog;
+	private final String schemaPattern;
 
 	public Inspector(Connection connection) {
-		this.connection = connection;
-		this.catalog = null;
-		this.schemaPattern = "%";
+		this(connection, null, "%");
 	}
 
 	public Inspector(Connection connection, String catalog, String schemaPattern) {
@@ -34,7 +35,7 @@ public class Inspector {
 		String[] types = new String[1];
 		types[0] = "TABLE";
 		ResultSet stmt = metaData.getTables(catalog, schemaPattern,
-				tablePattern, types);
+			tablePattern, types);
 		List<Table> result = new ArrayList<>();
 		while (stmt.next()) {
 			result.add(new Table(connection, catalog, schemaPattern, stmt));

@@ -3,14 +3,10 @@ package me.geso.dbinspector;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import lombok.ToString;
+
+@ToString
 public class PrimaryKey {
-	@Override
-	public String toString() {
-		return "PrimaryKey [tableCatalog=" + tableCatalog + ", tableSchema="
-				+ tableSchema + ", tableName=" + tableName + ", columnName="
-				+ columnName + ", sequenceNumber=" + sequenceNumber
-				+ ", primaryKeyName=" + primaryKeyName + "]";
-	}
 
 	private final String tableCatalog;
 	private final String tableSchema;
@@ -64,7 +60,7 @@ public class PrimaryKey {
 	public String getPrimaryKeyName() {
 		return primaryKeyName;
 	}
-	
+
 	public Column getColumn() {
 		return this.table.getColumn(this.getColumnName());
 	}

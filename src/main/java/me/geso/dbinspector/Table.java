@@ -7,13 +7,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Table {
+import lombok.ToString;
 
-	@Override
-	public String toString() {
-		return "Table [connection=" + connection + ", name=" + name
-				+ ", typeName=" + getTypeName() + ", type=" + getType() + "]";
-	}
+@ToString
+public class Table {
 
 	private final Connection connection;
 	private final String name;
@@ -21,7 +18,7 @@ public class Table {
 	private final String type;
 	private final String schema;
 	private final String catalog;
-	private List<Column> columns;
+	private final List<Column> columns;
 	private final List<ImportedKey> importedKeys;
 	private final List<ExportedKey> exportedKeys;
 
@@ -78,8 +75,7 @@ public class Table {
 		return name;
 	}
 
-	// TODO: Should we use streaming api?
-	public List<Column> getColumns() throws SQLException {
+	public List<Column> getColumns() {
 		return columns;
 	}
 
@@ -97,7 +93,7 @@ public class Table {
 	private List<Column> buildColumns() throws SQLException {
 		List<Column> columns = new ArrayList<>();
 		ResultSet stmt = connection.getMetaData().getColumns(catalog, schema, name,
-				"%");
+			"%");
 
 		while (stmt.next()) {
 			columns.add(new Column(stmt));
@@ -114,7 +110,7 @@ public class Table {
 	}
 
 	public Column getColumn(String columnName) {
-		for (Column column: this.columns) {
+		for (Column column : this.columns) {
 			if (column.getName().equals(columnName)) {
 				return column;
 			}

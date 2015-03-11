@@ -1,6 +1,6 @@
 package me.geso.dbinspector;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -14,20 +14,21 @@ public class ImportedKeyTest extends TestBase {
 		List<ImportedKey> importedKeys = inspector.getTable("branch").get().getImportedKeys();
 		assertEquals(importedKeys.size(), 1);
 		ImportedKey key = importedKeys.get(0);
-		assertEquals(key.getDeferrability(), 7);
-		assertEquals(key.getDeleteRule(), 0);
-		assertEquals(key.getForeignKeyCatalog(), "test");
-		assertEquals(key.getForeignKeyColumn(), "repository_id");
-		assertEquals(key.getForeignKeyName(), "CONSTRAINT_AD");
-		assertEquals(key.getForeignKeySchema(), "PUBLIC");
-		assertEquals(key.getForeignKeyTable() , "branch");
-		assertEquals(key.getKeySequence(), 1);
-		assertEquals(key.getPrimaryKeyCatalog(), "test");
-		assertEquals(key.getPrimaryKeyColumn(), "id");
-		assertEquals(key.getPrimaryKeyName(), "PRIMARY_KEY_7");
-		assertEquals(key.getPrimaryKeyScehema(), "PUBLIC");
-		assertEquals(key.getPrimaryKeyTable(), "repository");
-		assertEquals(key.getUpdateRule(), 1);
+		assertEquals("branch", key.getTable().getName());
+		assertEquals(7, key.getDeferrability());
+		assertEquals(0, key.getDeleteRule());
+		assertEquals("test", key.getForeignKeyCatalog());
+		assertEquals("repository_id", key.getForeignKeyColumn());
+		assertEquals("CONSTRAINT_AD", key.getForeignKeyName());
+		assertEquals("PUBLIC", key.getForeignKeySchema());
+		assertEquals("branch", key.getForeignKeyTable());
+		assertEquals(1, key.getKeySequence());
+		assertEquals("test", key.getPrimaryKeyCatalog());
+		assertEquals("id", key.getPrimaryKeyColumn());
+		assertEquals("PRIMARY_KEY_7", key.getPrimaryKeyName());
+		assertEquals("PUBLIC", key.getPrimaryKeySchema());
+		assertEquals("repository", key.getPrimaryKeyTable());
+		assertEquals(1, key.getUpdateRule());
 	}
 
 }

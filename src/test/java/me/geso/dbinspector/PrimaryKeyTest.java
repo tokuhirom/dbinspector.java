@@ -1,6 +1,6 @@
 package me.geso.dbinspector;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -25,6 +25,5 @@ public class PrimaryKeyTest extends TestBase {
 		assertEquals(pk.getTableSchema(), "PUBLIC");
 		assertEquals(pk.getTableName(), "job");
 	}
-
 
 }

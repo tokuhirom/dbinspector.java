@@ -3,26 +3,13 @@ package me.geso.dbinspector;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import lombok.ToString;
+
+@ToString
 public class ImportedKey {
-
-	@Override
-	public String toString() {
-		return "ImportedKey [primaryKeyCatalog=" + primaryKeyCatalog
-				+ ", primaryKeyScehema=" + primaryKeyScehema
-				+ ", primaryKeyTable=" + primaryKeyTable
-				+ ", primaryKeyColumn=" + primaryKeyColumn
-				+ ", foreignKeyCatalog=" + foreignKeyCatalog
-				+ ", foreignKeySchema=" + foreignKeySchema
-				+ ", foreignKeyTable=" + foreignKeyTable
-				+ ", foreignKeyColumn=" + foreignKeyColumn + ", keySequence="
-				+ keySequence + ", updateRule=" + updateRule + ", deleteRule="
-				+ deleteRule + ", foreignKeyName=" + foreignKeyName
-				+ ", primaryKeyName=" + primaryKeyName + ", deferrability="
-				+ deferrability + "]";
-	}
-
+	private final Table table;
 	private final String primaryKeyCatalog;
-	private final String primaryKeyScehema;
+	private final String primaryKeySchema;
 	private final String primaryKeyTable;
 	private final String primaryKeyColumn;
 	private final String foreignKeyCatalog;
@@ -37,8 +24,9 @@ public class ImportedKey {
 	private final short deferrability;
 
 	public ImportedKey(Table table, ResultSet stmt) throws SQLException {
+		this.table = table;
 		this.primaryKeyCatalog = stmt.getString("PKTABLE_CAT");
-		this.primaryKeyScehema = stmt.getString("PKTABLE_SCHEM");
+		this.primaryKeySchema = stmt.getString("PKTABLE_SCHEM");
 		this.primaryKeyTable = stmt.getString("PKTABLE_NAME");
 		this.primaryKeyColumn = stmt.getString("PKCOLUMN_NAME");
 		this.foreignKeyCatalog = stmt.getString("FKTABLE_CAT");
@@ -53,12 +41,16 @@ public class ImportedKey {
 		this.deferrability = stmt.getShort("DEFERRABILITY");
 	}
 
+	public Table getTable() {
+		return this.table;
+	}
+
 	public String getPrimaryKeyCatalog() {
 		return primaryKeyCatalog;
 	}
 
-	public String getPrimaryKeyScehema() {
-		return primaryKeyScehema;
+	public String getPrimaryKeySchema() {
+		return primaryKeySchema;
 	}
 
 	public String getPrimaryKeyTable() {
