@@ -125,4 +125,9 @@ public class Column {
 		return isAutoIncrement;
 	}
 
+	public boolean isPrimaryKey() throws SQLException {
+		return this.table.getPrimaryKeys().stream()
+			.anyMatch(pk -> pk.getColumnName().equals(this.name));
+	}
+
 }

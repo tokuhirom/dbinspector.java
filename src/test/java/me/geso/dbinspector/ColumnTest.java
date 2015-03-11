@@ -1,5 +1,6 @@
 package me.geso.dbinspector;
 
+import static junit.framework.TestCase.assertFalse;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -24,4 +25,10 @@ public class ColumnTest extends TestBase {
 		assertEquals(false, column.isAutoIncrement());
 	}
 
+	@Test
+	public void testIsPrimaryKey() throws Exception {
+		Optional<Table> table = inspector.getTable("job");
+		assertTrue(table.get().getColumn("id").isPrimaryKey());
+		assertFalse(table.get().getColumn("branch_id").isPrimaryKey());
+	}
 }
