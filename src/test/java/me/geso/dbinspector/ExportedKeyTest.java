@@ -14,22 +14,23 @@ public class ExportedKeyTest extends TestBase {
 	public void test() throws SQLException {
 		Optional<Table> table = inspector.getTable("branch");
 		List<ExportedKey> exportedKeys = table.get().getExportedKeys();
-		assertEquals(exportedKeys.size(), 1);
+		assertEquals(1, exportedKeys.size());
 		ExportedKey ek = exportedKeys.get(0);
-		assertEquals(ek.getDeferrability(), 7);
-		assertEquals(ek.getDeleteRule(), 0);
-		assertEquals(ek.getForeignKeyCatalog(), "test");
-		assertEquals(ek.getForeignKeyColumn(), "branch_id");
-		assertEquals(ek.getForeignKeyName(), "CONSTRAINT_19");
-		assertEquals(ek.getForeignKeySchema(), "PUBLIC");
-		assertEquals(ek.getForeignKeyTable(), "job");
-		assertEquals(ek.getKeySequence(), 1);
-		assertEquals(ek.getPrimaryKeyCatalog(), "test");
-		assertEquals(ek.getPrimaryKeyColumn(), "id");
-		assertEquals(ek.getPrimaryKeyName(), "PRIMARY_KEY_A");
-		assertEquals(ek.getPrimaryKeyScehema(), "PUBLIC");
-		assertEquals(ek.getPrimaryKeyTable(), "branch");
-		assertEquals(ek.getUpdateRule(), 1);
+		assertEquals("branch", ek.getTable().getName());
+		assertEquals(7, ek.getDeferrability());
+		assertEquals(0, ek.getDeleteRule());
+		assertEquals("test", ek.getForeignKeyCatalog());
+		assertEquals("branch_id", ek.getForeignKeyColumn());
+		assertEquals("CONSTRAINT_19", ek.getForeignKeyName());
+		assertEquals("PUBLIC", ek.getForeignKeySchema());
+		assertEquals("job", ek.getForeignKeyTable());
+		assertEquals(1, ek.getKeySequence());
+		assertEquals("test", ek.getPrimaryKeyCatalog());
+		assertEquals("id", ek.getPrimaryKeyColumn());
+		assertEquals("PRIMARY_KEY_A", ek.getPrimaryKeyName());
+		assertEquals("PUBLIC", ek.getPrimaryKeySchema());
+		assertEquals("branch", ek.getPrimaryKeyTable());
+		assertEquals(1, ek.getUpdateRule());
 	}
 
 }

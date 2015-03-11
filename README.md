@@ -14,7 +14,7 @@ dbinspector.java is a tiny OO wrapper for JDBC's schema introspection API.
 
 This library works well.
 
-## API stabillity
+## API stability
 
 This library may change the API. But you shouldn't care that.
 Because main use case around this library is the development tools for RDBMS.
@@ -26,7 +26,7 @@ This library respects Semantic versioning.
 
 ## Plans
 
-Thre is no future plan.
+There is no future plan.
 
 ## LICENSE
 
@@ -50,3 +50,4 @@ Thre is no future plan.
     LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
+
