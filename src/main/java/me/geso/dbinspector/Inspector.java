@@ -14,9 +14,7 @@ public class Inspector {
 	private final String schemaPattern;
 
 	public Inspector(Connection connection) {
-		this.connection = connection;
-		this.catalog = null;
-		this.schemaPattern = "%";
+		this(connection, null, "%");
 	}
 
 	public Inspector(Connection connection, String catalog, String schemaPattern) {

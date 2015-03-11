@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 public class ExportedKey {
 	private final String primaryKeyCatalog;
-	private final String primaryKeyScehema;
+	private final String primaryKeySchema;
 	private final String primaryKeyTable;
 	private final String primaryKeyColumn;
 	private final String foreignKeyCatalog;
@@ -86,7 +86,7 @@ public class ExportedKey {
 	public ExportedKey(Table table, ResultSet stmt) throws SQLException {
 		this.table = table;
 		this.primaryKeyCatalog = stmt.getString("PKTABLE_CAT");
-		this.primaryKeyScehema = stmt.getString("PKTABLE_SCHEM");
+		this.primaryKeySchema = stmt.getString("PKTABLE_SCHEM");
 		this.primaryKeyTable = stmt.getString("PKTABLE_NAME");
 		this.primaryKeyColumn = stmt.getString("PKCOLUMN_NAME");
 		this.foreignKeyCatalog = stmt.getString("FKTABLE_CAT");
@@ -105,8 +105,8 @@ public class ExportedKey {
 		return primaryKeyCatalog;
 	}
 
-	public String getPrimaryKeyScehema() {
-		return primaryKeyScehema;
+	public String getPrimaryKeySchema() {
+		return primaryKeySchema;
 	}
 
 	public String getPrimaryKeyTable() {

@@ -78,8 +78,7 @@ public class Table {
 		return name;
 	}
 
-	// TODO: Should we use streaming api?
-	public List<Column> getColumns() throws SQLException {
+	public List<Column> getColumns() {
 		return columns;
 	}
 
