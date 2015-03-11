@@ -3,29 +3,10 @@ package me.geso.dbinspector;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import lombok.ToString;
+
+@ToString
 public class ImportedKey {
-
-	@Override
-	public String toString() {
-		return "ImportedKey{" +
-				"table=" + table +
-				", primaryKeyCatalog='" + primaryKeyCatalog + '\'' +
-				", primaryKeySchema='" + primaryKeySchema + '\'' +
-				", primaryKeyTable='" + primaryKeyTable + '\'' +
-				", primaryKeyColumn='" + primaryKeyColumn + '\'' +
-				", foreignKeyCatalog='" + foreignKeyCatalog + '\'' +
-				", foreignKeySchema='" + foreignKeySchema + '\'' +
-				", foreignKeyTable='" + foreignKeyTable + '\'' +
-				", foreignKeyColumn='" + foreignKeyColumn + '\'' +
-				", keySequence=" + keySequence +
-				", updateRule=" + updateRule +
-				", deleteRule=" + deleteRule +
-				", foreignKeyName='" + foreignKeyName + '\'' +
-				", primaryKeyName='" + primaryKeyName + '\'' +
-				", deferrability=" + deferrability +
-				'}';
-	}
-
 	private final Table table;
 	private final String primaryKeyCatalog;
 	private final String primaryKeySchema;

@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import lombok.ToString;
+
+@ToString
 public class Inspector {
 	private final Connection connection;
 	private final String catalog;

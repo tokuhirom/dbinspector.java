@@ -7,13 +7,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Table {
+import lombok.ToString;
 
-	@Override
-	public String toString() {
-		return "Table [connection=" + connection + ", name=" + name
-			+ ", typeName=" + getTypeName() + ", type=" + getType() + "]";
-	}
+@ToString
+public class Table {
 
 	private final Connection connection;
 	private final String name;

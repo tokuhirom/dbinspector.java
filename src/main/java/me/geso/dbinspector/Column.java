@@ -4,6 +4,9 @@ import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import lombok.ToString;
+
+@ToString
 public class Column {
 
 	private final String name;
