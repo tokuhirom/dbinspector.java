@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
-@ToString
+@ToString(exclude = {"table"})
 @EqualsAndHashCode
 public class PrimaryKey {
 
@@ -64,10 +64,11 @@ public class PrimaryKey {
 	}
 
 	public Column getColumn() {
-		return this.table.getColumn(this.getColumnName());
+		return this.table.getColumn(this.getColumnName())
+				.orElseThrow(() -> new IllegalStateException());
 	}
 
 	public int getDataType() {
-		return this.getColumn().getDataType();
+		return getColumn().getDataType();
 	}
 }

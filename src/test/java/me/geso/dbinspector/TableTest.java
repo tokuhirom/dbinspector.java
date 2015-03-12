@@ -1,5 +1,6 @@
 package me.geso.dbinspector;
 
+import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 
@@ -18,5 +19,6 @@ public class TableTest extends TestBase {
 		final List<Column> columns = table.getColumns();
 		assertEquals(4, columns.size());
 		assertEquals("id", columns.get(0).getName());
+		assertFalse(table.toString().isEmpty());
 	}
 }

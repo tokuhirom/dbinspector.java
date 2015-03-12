@@ -1,6 +1,7 @@
 package me.geso.dbinspector;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -25,5 +26,14 @@ public class PrimaryKeyTest extends TestBase {
 		assertEquals(pk.getTableSchema(), "PUBLIC");
 		assertEquals(pk.getTableName(), "job");
 	}
+
+	@Test
+	public void testToString() throws SQLException {
+		Optional<Table> table = inspector.getTable("job");
+		final PrimaryKey primaryKey = table.get().getPrimaryKeys().get(0);
+		assertFalse(primaryKey.toString().isEmpty());
+	}
+
+
 
 }

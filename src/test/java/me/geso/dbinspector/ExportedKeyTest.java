@@ -1,6 +1,7 @@
 package me.geso.dbinspector;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -31,6 +32,7 @@ public class ExportedKeyTest extends TestBase {
 		assertEquals("PUBLIC", ek.getPrimaryKeySchema());
 		assertEquals("branch", ek.getPrimaryKeyTable());
 		assertEquals(1, ek.getUpdateRule());
+		assertFalse(ek.toString().isEmpty());
 	}
 
 }

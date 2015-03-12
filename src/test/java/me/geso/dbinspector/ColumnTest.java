@@ -15,7 +15,7 @@ public class ColumnTest extends TestBase {
 	public void test() throws SQLException {
 		Optional<Table> table = inspector.getTable("job");
 		assertTrue(table.isPresent());
-		Column column = table.get().getColumn("id");
+		Column column = table.get().getColumn("id").get();
 		assertEquals(java.sql.Types.INTEGER, column.getDataType());
 		assertEquals("id", column.getName());
 		assertEquals(1, column.getOrdinalPosition());
@@ -28,7 +28,7 @@ public class ColumnTest extends TestBase {
 	@Test
 	public void testIsPrimaryKey() throws Exception {
 		Optional<Table> table = inspector.getTable("job");
-		assertTrue(table.get().getColumn("id").isPrimaryKey());
-		assertFalse(table.get().getColumn("branch_id").isPrimaryKey());
+		assertTrue(table.get().getColumn("id").get().isPrimaryKey());
+		assertFalse(table.get().getColumn("branch_id").get().isPrimaryKey());
 	}
 }

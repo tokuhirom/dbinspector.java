@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
-@ToString
+@ToString(exclude = {"table"})
 @EqualsAndHashCode
 public class Column {
 

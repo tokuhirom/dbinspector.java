@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -111,13 +112,13 @@ public class Table {
 		return typeName;
 	}
 
-	public Column getColumn(String columnName) {
+	public Optional<Column> getColumn(String columnName) {
 		for (Column column : this.columns) {
 			if (column.getName().equals(columnName)) {
-				return column;
+				return Optional.of(column);
 			}
 		}
-		return null;
+		return Optional.empty();
 	}
 
 	public List<ImportedKey> getImportedKeys() {
